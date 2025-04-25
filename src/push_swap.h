@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 16:44:40 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:54:10 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct main
 int		ft_error(char *message);
 void	initialize_vars(t_main	*main, char **argv, int argc);
 void	save_args(t_main *main);
-void	check_number(int num);
+void	check_num_limit(int num);
 void	check_dup_num(t_main *main);
-char	is_valid_number(char num);
+int		is_valid_number(t_main *main, int i);
 
 #endif

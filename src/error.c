@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:26 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 15:57:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:49:04 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,5 @@ int	ft_error(char *message)
 {
 	ft_printf(message);
 	ft_printf("\n");
-	return (0);
+	exit (1);
 }
