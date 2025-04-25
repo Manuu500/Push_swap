@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 17:54:10 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:40:41 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 
 typedef struct main
 {
-	int	*arg_alloc;
-	int	argc;
+	char	**arg_matrix;
+	int		*arg_alloc_i;
+	int		argc;
 	char	**argv;
 }				t_main;
 
@@ -29,5 +30,6 @@ void	save_args(t_main *main);
 void	check_num_limit(int num);
 void	check_dup_num(t_main *main);
 int		is_valid_number(t_main *main, int i);
+void	save_args2(t_main *main);
 
 #endif

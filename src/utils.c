@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 17:53:53 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:40:58 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	save_args(t_main *main)
 	int	i;
 
 	check = 0;
-	main->arg_alloc = malloc(sizeof(int) * main->argc);
-	if (!main->arg_alloc)
+	main->arg_alloc_i = malloc(sizeof(int) * main->argc);
+	if (!main->arg_alloc_i)
 		ft_error("The alloc failed on save_numbers function");
 	i = 1;
 	while (i < main->argc)
@@ -40,8 +40,32 @@ void	save_args(t_main *main)
 			ft_error("One argument is not a number");
 		num = ft_atoi(main->argv[i]);
 		check_num_limit(num);
-		main->arg_alloc[i] = num;
+		main->arg_alloc_i[i] = num;
 		i++;
 	}
 	check_dup_num(main);
+}
+
+void	save_args2(t_main *main)
+{
+	int	i;
+	int	j;
+	int	num;
+	
+	i = 0;
+	main->arg_matrix = ft_split(main->argv[1], ' ');
+	if (!main->arg_matrix)
+		ft_error("Alloc failed on save_args2");
+	while (main->arg_matrix[i])
+		i++;
+	main->arg_alloc_i = malloc(sizeof(char) * i);
+	if (!main->arg_alloc_i)
+		ft_error("Couldnt alloc in save_args2 ");
+	j = 0;
+	while (main->arg_matrix[j])
+	{
+		num = ft_atoi(main->arg_matrix[j]);
+		main->arg_alloc_i[j] = num;
+		j++;
+	}
 }

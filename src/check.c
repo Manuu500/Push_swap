@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 17:54:00 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:11:55 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	check_dup_num(t_main *main)
 		j = i + 1;
 		while (j < main->argc)
 		{
-			if (main->arg_alloc[i] == main->arg_alloc[j])
+			if (main->arg_alloc_i[i] == main->arg_alloc_i[j])
 				ft_error("One number is duplicated");
 			j++;
 		}
