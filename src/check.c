@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 16:29:44 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:44:31 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ void	check_number(int num)
 	ft_printf("El numero pasado es: %d\n", num);
 	if (num > INT_MAX || num < INT_MIN)
 		ft_error("El numero sobrepasa un límite");
-	if (num > '0' && num < '9')
-		ft_error("El dato introducido no es un número");
+}
+
+char	is_valid_number(char num)
+{
+	return (num < '0' || num > '9');
 }
 
 void	check_dup_num(t_main *main)

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 16:30:15 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/25 16:42:50 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,15 @@ void	save_args(t_main *main)
 {
 	int	num;
 	int	i;
-	i = 1;
-	main->arg_alloc = malloc(sizeof(int) * main->argc + 1);
+
+	main->arg_alloc = malloc(sizeof(int) * main->argc);
 	if (!main->arg_alloc)
 		ft_error("The alloc failed on save_numbers function");
+	i = 1;
 	while (i < main->argc)
 	{
+		if (!is_valid_number(main->argv[i]))
+			ft_error("One arg is not a number");
 		num = ft_atoi(main->argv[i]);
 		check_number(num);
 		main->arg_alloc[i] = num;
