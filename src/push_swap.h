@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 16:45:37 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:15:24 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ void		save_args3(t_main *main);
 void		alloc_args(t_main *main, int flag);
 char		**parse_char(t_main *main, int ac, char **av);
 void		parse_args(t_main *main, int argc, char **argv);
-int			validate_nums(char **nums, int ac);
+// int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
+int validate_nums(int *nums);
 
 
 #endif

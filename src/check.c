@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 16:35:20 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:18:36 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,18 @@ void	check_dup_num_c(t_main *main)
 			j++;
 		}
 		i++;
+	}
+}
+
+int validate_nums(int *nums)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	while (nums[i])
+	{
+		
 	}
 }

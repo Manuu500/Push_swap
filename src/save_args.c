@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 16:36:29 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:17:12 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,42 +89,60 @@ char	**parse_char(t_main *main, int ac, char **av)
 		i++;
 	}
 	result = ft_split(value, ' ');
-	i = 0;
-	while (result[i])
-	{
-		ft_printf("Argumento %d: %s\n", i, result[i]);
-		i++;
-	}
+	// i = 0;
+	// while (result[i])
+	// {
+	// 	ft_printf("Argumento %d: %s\n", i, result[i]);
+	// 	i++;
+	// }
 	return (result);
 }
 
-int	validate_nums(char **nums, int ac)
-{
-	int	i;
-	int j;
+// int	validate_nums(char **nums, int ac)
+// {
+// 	int	i;
+// 	int j;
 	
-	(void) ac;
-	i = 0;
-	while (nums[i])
-	{
-		j = 0;
-		while (nums[i][j])
-		{
-			if (j == 0 && (nums[i][j] == '-' ||  nums[i][j] == '+'))
-				return (0);
-			if (!ft_isdigit(nums[i][j]))
-				return (0);
-			j++;	
-		}
-		i++;
-	}
-	return (1);
-}
+// 	(void) ac;
+// 	i = 0;
+// 	while (nums[i])
+// 	{
+// 		j = 0;
+// 		while (nums[i][j])
+// 		{
+// 			if (j == 0 && (nums[i][j] == '-' ||  nums[i][j] == '+'))
+// 				return (0);
+// 			if (!ft_isdigit(nums[i][j]))
+// 				return (0);
+// 			j++;	
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 void	parse_args(t_main *main, int argc, char **argv)
 {
 	char	**av_array;
-	
+	int		*num_array;
+	int	i;
+
+	i = 0;
+	num_array = NULL;
 	av_array = parse_char(main, argc, argv);
-	validate_nums(av_array, argc);
+	while (av_array[i])
+		i++;
+	num_array = malloc(sizeof(int) * i);
+	if (!num_array)
+	{
+		free(num_array);
+		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (av_array[i])
+	{
+		num_array[i] = ft_atoi(av_array[i]);
+		i++;
+	}
+	free (num_array);
 }
