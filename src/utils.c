@@ -6,11 +6,27 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 19:46:31 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/04/28 11:11:08 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	alloc_args(t_main *main, int flag)
+{
+	if (flag == 1)
+	{
+		main->arg_matrix = ft_split(main->arg_temp, ' ');
+		if (!main->arg_matrix)
+			ft_error(main, "Alloc failed on save_args2");
+	}
+	else
+	{
+		main->arg_matrix = ft_split(main->argv[1], ' ');
+		if (!main->arg_matrix)
+			ft_error(main, "Alloc failed on save_args2");
+	}
+}
 
 void	initialize_vars(t_main	*main, char **argv, int argc)
 {
@@ -22,56 +38,6 @@ void	initialize_vars(t_main	*main, char **argv, int argc)
 		ft_error(main, "The amount of argvs has not been saved");
 	main->c_arg_count = 0;
 
-}
-
-void	save_args(t_main *main)
-{
-	int	num;
-	int	check;
-	int	i;
-
-	check = 0;
-	main->arg_alloc_i = malloc(sizeof(int) * main->argc);
-	if (!main->arg_alloc_i)
-		ft_error(main, "The alloc failed on save_numbers function");
-	i = 1;
-	while (i < main->argc)
-	{
-		check = is_valid_number(main, i);
-		if (check == 1)
-			ft_error(main, "One argument is not a number");
-		num = ft_atoll(main, main->argv[i]);
-		check_num_limit(main, num);
-		main->arg_alloc_i[i] = num;
-		i++;
-	}
-	check_dup_num(main);
-}
-
-void	save_args2(t_main *main)
-{
-	int	i;
-	int	num;
-	
-	i = 0;
-	main->arg_matrix = ft_split(main->argv[1], ' ');
-	if (!main->arg_matrix)
-		ft_error(main, "Alloc failed on save_args2");
-	count_args(main);
-	ft_printf("Datos almacenados en la matriz: %d\n", main->arg_matrix);
-	main->arg_alloc_i = malloc(sizeof(int) * main->c_arg_count);
-	if (!main->arg_alloc_i)
-		ft_error(main, "Couldnt alloc in save_args2");
-	i = 0;
-	while (main->arg_matrix[i])
-	{
-		is_valid_number_s(main, i);
-		num = ft_atoll(main, main->arg_matrix[i]);
-		check_num_limit(main, num);
-		main->arg_alloc_i[i] = num;
-		i++;
-	}
-	check_dup_num_c(main);
 }
 
 int	count_args(t_main *main)

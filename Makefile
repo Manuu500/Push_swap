@@ -1,7 +1,7 @@
 NAME	:= push_swap
 
 CC = cc
-CFLAGS	:= -Wextra -Wall -Werror
+CFLAGS	:= -Wextra -Wall -Werror -g 
 
 LIBFT	:= ./libs/libft
 
@@ -14,6 +14,7 @@ SRC :=	src/main.c \
 		src/error.c \
 		src/utils.c \
 		src/check.c \
+		src/save_args.c \
 
 OBJ	= $(patsubst src%, obj%, $(SRC:.c=.o))
 

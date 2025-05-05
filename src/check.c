@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/04/25 19:41:51 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:35:20 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,39 +41,40 @@ int	is_valid_number(t_main *main, int i)
 void	is_valid_number_s(t_main *main, int i)
 {
 	int	j;
-	int	num;
 
 	while (i < main->c_arg_count)
 	{
 		j = 0;
-		num = ft_atoi(main->arg_matrix[i]);
 		if (main->arg_matrix[i][j] == '-')
 			j++;
-		if (main->arg_matrix[i][j] < '0'
-			|| main->arg_matrix[i][j] > '9')
-			ft_error(main, "One argument is not valid");
-		i++;
-	}
-}
-
-void	check_dup_num(t_main *main)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	while (i < main->argc)
-	{
-		j = i + 1;
-		while (j < main->argc)
+		while (main->arg_matrix[i][j])
 		{
-			if (main->arg_alloc_i[i] == main->arg_alloc_i[j])
-				ft_error(main, "One number is duplicated");
+			if (main->arg_matrix[i][j] < '0' || main->arg_matrix[i][j] > '9')
+				ft_error(main, "One argument is not valid");
 			j++;
 		}
 		i++;
 	}
 }
+
+// void	check_dup_num(char **nums, int argc)
+// {
+// 	int	i;
+// 	int	j;
+	
+// 	i = 0;
+// 	while (i < argc)
+// 	{
+// 		j = i + 1;
+// 		while (j < argc)
+// 		{
+// 			if (main->arg_alloc_i[i] == main->arg_alloc_i[j])
+// 				ft_error(main, "One number is duplicated");
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
 
 void	check_dup_num_c(t_main *main)
 {
