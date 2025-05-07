@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:10:05 by mruiz-ur         ###   ########.fr       */
+/*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
+/*   Updated: 2025/05/07 19:18:53 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	high_to_low(t_stack *list, int *array, int argc)
 {
-	t_main	main;
+	t_stack	*temp;
+	int	i;
 	
-	initialize_vars(&main, argv, argc);
-	is_valid_number(&main, argv);
-	parse_args(&main, argc, argv);
-	high_to_low(main.list, main.num_array, argc - 1);
-	// save_args3(&main);
-	// free(main.arg_alloc_i);
-	return (0);
+	(void) argc;
+	i = 0;
+	temp = list;
+	while (array[i])
+	{
+		ft_printf("Array original: %d\n", array[i]);
+		i++;
+	}
+	i = 0;
+	while (temp != NULL)
+	{
+		ft_printf("Nodos: %d\n", (temp->content));
+		temp = temp->next;
+	}
 }

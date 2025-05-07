@@ -15,6 +15,8 @@ SRC :=	src/main.c \
 		src/utils.c \
 		src/check.c \
 		src/save_args.c \
+		src/algorithm.c \
+		src/list.c \
 
 OBJ	= $(patsubst src%, obj%, $(SRC:.c=.o))
 

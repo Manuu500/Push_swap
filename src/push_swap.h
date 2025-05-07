@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 15:37:37 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:23:20 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,23 @@
 # include "../libs/libft/libft.h"
 # include <limits.h>
 
+typedef struct s_stack
+{
+	int	content;
+	struct s_stack *next;
+}				t_stack;
+
 typedef struct main
 {
 	char	**arg_matrix;
 	char	*arg_temp;
 	char	**argv;
 	int		argc;
-	long long		*arg_alloc_i;
-	long long		*arg_alloc;
+	int		*num_array;
 	int		c_arg_count;
+	t_stack	*list;
 }				t_main;
+
 
 long long	ft_atoll(t_main *main, const char *str);
 int			ft_error(t_main *main, char *message);
@@ -45,6 +52,9 @@ void		parse_args(t_main *main, int argc, char **argv);
 // int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
 int 		validate_dup(t_main *main, int *nums);
-
+void	high_to_low(t_stack *list, int *array, int argc);
+//Lists
+t_stack	*ft_lstnew_swap(int content);
+void	ft_lstadd_back_swap(t_stack **lst, t_stack *new);
 
 #endif

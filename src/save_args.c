@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 15:52:53 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:23:29 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,27 +100,31 @@ char	**parse_char(t_main *main, int ac, char **av)
 
 void	 parse_args(t_main *main, int argc, char **argv)
 {
+	t_stack	*list;
+	t_stack	*new_node;
 	char	**av_array;
 	int		*num_array;
 	int	i;
 
 	i = 0;
+	list = NULL;
 	num_array = NULL;
 	av_array = parse_char(main, argc, argv);
 	while (av_array[i]) 
 		i++;
 	num_array = malloc(sizeof(int) * i);
 	if (!num_array)
-	{
-		free(num_array);
 		exit(EXIT_FAILURE);
-	}
 	i = 0;
 	while (av_array[i])
 	{
 		num_array[i] = ft_atoll(main, av_array[i]);
+		new_node = ft_lstnew_swap(num_array[i]);
+		ft_lstadd_back_swap(&list, new_node);
 		i++;
 	}
+	main->list = list;
 	validate_dup(main, num_array);
+	main->num_array = num_array;
 	// free (num_array);
 }

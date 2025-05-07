@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:10:05 by mruiz-ur         ###   ########.fr       */
+/*   Created: 2025/05/07 18:51:30 by mruiz-ur          #+#    #+#             */
+/*   Updated: 2025/05/07 19:23:04 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*ft_lstnew_swap(int content)
 {
-	t_main	main;
-	
-	initialize_vars(&main, argv, argc);
-	is_valid_number(&main, argv);
-	parse_args(&main, argc, argv);
-	high_to_low(main.list, main.num_array, argc - 1);
-	// save_args3(&main);
-	// free(main.arg_alloc_i);
-	return (0);
+	t_stack	*new_list;
+
+	new_list = ft_calloc(1, sizeof(t_stack));
+	if (!new_list)
+		return (NULL);
+	new_list->content = content;
+	new_list->next = NULL;
+	return (new_list);
+}
+
+void	ft_lstadd_back_swap(t_stack **lst, t_stack *new)
+{
+	t_stack	*list;
+
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		list = *lst;
+		while (list->next != NULL)
+			list = list->next;
+		list->next = new;
+	}
 }
