@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:23:20 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:41:32 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int 		validate_dup(t_main *main, int *nums);
 void	high_to_low(t_stack *list, int *array, int argc);
 //Lists
 t_stack	*ft_lstnew_swap(int content);
+t_stack	*ft_lstlast_swap(t_stack *lst);
+void	ft_lstadd_front_swap(t_stack **lst, t_stack *new);
+void	rotate_pos(t_stack **stack);
 void	ft_lstadd_back_swap(t_stack **lst, t_stack *new);
 
 #endif

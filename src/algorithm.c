@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:18:53 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 19:42:15 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	high_to_low(t_stack *list, int *array, int argc)
 		ft_printf("Array original: %d\n", array[i]);
 		i++;
 	}
-	i = 0;
+	rotate_pos(&temp);
 	while (temp != NULL)
 	{
 		ft_printf("Nodos: %d\n", (temp->content));
