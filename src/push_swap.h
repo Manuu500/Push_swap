@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 17:15:24 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:37:37 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@ int			ft_error(t_main *main, char *message);
 void		initialize_vars(t_main	*main, char **argv, int argc);
 void		save_args(t_main *main);
 void		check_num_limit(t_main *main, long long num);
-void		check_dup_num(t_main *main);
-int			is_valid_number(t_main *main, int i);
-void		is_valid_number_s(t_main *main, int i);
+void		check_dup_num(t_main *main, char **nums, int argc);
+int			is_valid_number(t_main *main, char **nums);
+// void		is_valid_number_s(t_main *main, int i);
 void		save_args2(t_main *main, int flag);
 int			count_args(t_main *main);
 void		free_matrix(char **matrix);
@@ -44,7 +44,7 @@ char		**parse_char(t_main *main, int ac, char **av);
 void		parse_args(t_main *main, int argc, char **argv);
 // int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
-int validate_nums(int *nums);
+int 		validate_dup(t_main *main, int *nums);
 
 
 #endif

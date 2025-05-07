@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 17:18:36 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:38:49 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,91 +19,40 @@ void	check_num_limit(t_main *main, long long num)
 		ft_error(main, "El numero sobrepasa un límite");
 }
 
-int	is_valid_number(t_main *main, int i)
+int	is_valid_number(t_main *main, char **nums)
 {
+	int	i;
 	int	j;
-	int	check;
 	
-	check = 0;
-	while (i < main->argc)
+	i = 1;
+	while (nums[i])
 	{
 		j = 0;
-		if (main->argv[i][j] == '-')
+		if (nums[i][j] == '-' || nums[i][j] == '+')
 			j++;
-		if (main->argv[i][j] < '0'
-			|| main->argv[i][j] > '9')
+		if (nums[i][j] < '0' || nums[i][j] > '9')
 			ft_error(main, "One argument is not valid");
 		i++;
 	}
-	return (check);
+	return (1);
 }
 
-void	is_valid_number_s(t_main *main, int i)
-{
-	int	j;
-
-	while (i < main->c_arg_count)
-	{
-		j = 0;
-		if (main->arg_matrix[i][j] == '-')
-			j++;
-		while (main->arg_matrix[i][j])
-		{
-			if (main->arg_matrix[i][j] < '0' || main->arg_matrix[i][j] > '9')
-				ft_error(main, "One argument is not valid");
-			j++;
-		}
-		i++;
-	}
-}
-
-// void	check_dup_num(char **nums, int argc)
-// {
-// 	int	i;
-// 	int	j;
-	
-// 	i = 0;
-// 	while (i < argc)
-// 	{
-// 		j = i + 1;
-// 		while (j < argc)
-// 		{
-// 			if (main->arg_alloc_i[i] == main->arg_alloc_i[j])
-// 				ft_error(main, "One number is duplicated");
-// 			j++;
-// 		}
-// 		i++;
-// 	}
-// }
-
-void	check_dup_num_c(t_main *main)
-{
-	int	i;
-	int	j;
-	
-	i = 0;
-	while (i < main->c_arg_count)
-	{
-		j = i + 1;
-		while (j < main->c_arg_count)
-		{
-			if (main->arg_alloc_i[i] == main->arg_alloc_i[j])
-				ft_error(main, "One number is duplicated");
-			j++;
-		}
-		i++;
-	}
-}
-
-int validate_nums(int *nums)
+int validate_dup(t_main *main, int *nums)
 {
 	int	i;
 	int	j;
 
-	j = 0;
 	i = 0;
 	while (nums[i])
 	{
-		
+		j = i + 1;
+		while (nums[j])
+		{
+			if (nums[i] == nums[j])
+				ft_error(main, "There is one number duplicated");
+			j++;
+		}
+		i++;
 	}
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/05 17:17:12 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/07 15:25:39 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@
 
 char	**parse_char(t_main *main, int ac, char **av)
 {
-	char	**result;
+	char		**result;
 	char	*value;
 	char	*temp;
 	int		i;
@@ -89,12 +89,12 @@ char	**parse_char(t_main *main, int ac, char **av)
 		i++;
 	}
 	result = ft_split(value, ' ');
-	// i = 0;
-	// while (result[i])
-	// {
-	// 	ft_printf("Argumento %d: %s\n", i, result[i]);
-	// 	i++;
-	// }
+	i = 0;
+	while (result[i])
+	{
+		ft_printf("Argumento %d: %s\n", i, result[i]);
+		i++;
+	}
 	return (result);
 }
 
@@ -121,7 +121,7 @@ char	**parse_char(t_main *main, int ac, char **av)
 // 	return (1);
 // }
 
-void	parse_args(t_main *main, int argc, char **argv)
+void	 parse_args(t_main *main, int argc, char **argv)
 {
 	char	**av_array;
 	int		*num_array;
@@ -130,7 +130,7 @@ void	parse_args(t_main *main, int argc, char **argv)
 	i = 0;
 	num_array = NULL;
 	av_array = parse_char(main, argc, argv);
-	while (av_array[i])
+	while (av_array[i]) 
 		i++;
 	num_array = malloc(sizeof(int) * i);
 	if (!num_array)
@@ -141,8 +141,10 @@ void	parse_args(t_main *main, int argc, char **argv)
 	i = 0;
 	while (av_array[i])
 	{
-		num_array[i] = ft_atoi(av_array[i]);
+		num_array[i] = ft_atoll(main, av_array[i]);
 		i++;
 	}
+	validate_dup(main, num_array);
+	i = 0;
 	free (num_array);
 }
