@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:41:32 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/13 19:37:16 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 typedef struct s_stack
 {
 	int	content;
+	int	index;
+	struct s_stack *prev;
 	struct s_stack *next;
 }				t_stack;
 
@@ -29,7 +31,8 @@ typedef struct main
 	int		argc;
 	int		*num_array;
 	int		c_arg_count;
-	t_stack	*list;
+	t_stack	*a;
+	t_stack *b;
 }				t_main;
 
 
@@ -52,12 +55,13 @@ void		parse_args(t_main *main, int argc, char **argv);
 // int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
 int 		validate_dup(t_main *main, int *nums);
-void	high_to_low(t_stack *list, int *array, int argc);
+void	ra(t_stack *list, int *array, int argc);
 //Lists
 t_stack	*ft_lstnew_swap(int content);
 t_stack	*ft_lstlast_swap(t_stack *lst);
 void	ft_lstadd_front_swap(t_stack **lst, t_stack *new);
 void	rotate_pos(t_stack **stack);
 void	ft_lstadd_back_swap(t_stack **lst, t_stack *new);
+void	swap(t_stack *list, int *array);
 
 #endif

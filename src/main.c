@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:10:05 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:04:51 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int argc, char **argv)
 	initialize_vars(&main, argv, argc);
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
-	high_to_low(main.list, main.num_array, argc - 1);
+	// ra(main.a, main.num_array, argc - 1);
+	sa(main.a, main.num_array);
 	// save_args3(&main);
 	// free(main.arg_alloc_i);
 	return (0);

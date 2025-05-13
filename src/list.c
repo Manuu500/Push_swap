@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 18:51:30 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 20:12:59 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/13 15:56:06 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*ft_lstnew_swap(int content)
 	if (!new_list)
 		return (NULL);
 	new_list->content = content;
+	new_list->prev = NULL;
 	new_list->next = NULL;
 	return (new_list);
 }
@@ -36,6 +37,7 @@ void	ft_lstadd_back_swap(t_stack **lst, t_stack *new)
 		while (list->next != NULL)
 			list = list->next;
 		list->next = new;
+		new->prev = list;
 	}
 }
 t_stack	*ft_lstlast_swap(t_stack *lst)

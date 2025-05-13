@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/07 19:23:29 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/13 16:04:23 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void	 parse_args(t_main *main, int argc, char **argv)
 		ft_lstadd_back_swap(&list, new_node);
 		i++;
 	}
-	main->list = list;
+	main->a = list;
 	validate_dup(main, num_array);
 	main->num_array = num_array;
 	// free (num_array);
