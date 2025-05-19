@@ -17,6 +17,10 @@ SRC :=	src/main.c \
 		src/save_args.c \
 		src/algorithm.c \
 		src/list.c \
+		src/push.c \
+		src/swap.c \
+		src/rotate.c \
+		src/rev_rotate.c \
 
 OBJ	= $(patsubst src%, obj%, $(SRC:.c=.o))
 

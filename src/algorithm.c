@@ -6,54 +6,94 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/13 19:36:55 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:57:38 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_stack *list, int *array, int argc)
+void	push(t_stack **source, t_stack **dest)
 {
-	t_stack	*temp;
-	int	i;
-	
-	(void) argc;
-	i = 0;
-	temp = list;
-	while (array[i])
-	{
-		// ft_printf("Array original: %d\n", array[i]);
-		i++;
-	}
-	rotate_pos(&temp);
-	while (temp != NULL)
-	{
-		// ft_printf("Nodos: %d\n", (temp->content));
-		temp = temp->next;
-	}
+	if (!*source)
+		return ;
+	ft_lstadd_front_swap(dest, ft_detach(source, *source));
 }
 
-void	swap(t_stack *list, int *array)
+t_stack	*ft_detach(t_stack **list, t_stack *node)
 {
+	if (!list || !node)
+		return (0);
+	if (node->prev)
+		(node->prev)->next = node->next;
+	else
+		*list = node->next;
+	if (node->next)
+		(node->next)->prev = node->prev;
+	node->next = NULL;
+	node->prev = NULL;
+	return (node);
+}
+
+void	rotate(t_stack **list)
+{
+	t_stack	*first;
+	t_stack *second;
+	t_stack	*last;
+
+	if (!*list)
+		return ;
+	first = *list;
+	second = first->next;
+	last = first;
+	while (last->next != NULL)
+	{	
+		last = last->next;
+	}
+	last->next = first;
+	first->next = NULL;
+	first->prev = last;
+	second->prev = NULL;
+	*list = second;
+}
+
+void	reverse_rotate(t_stack **list)
+{
+	t_stack *penultimate;
+	t_stack *first;
+	t_stack *second;
+	t_stack *last;
+
+	if (!*list)
+		return ;
+	penultimate = NULL;
+	first = *list;
+	second = first->next;
+	last = first;
+	while (last->next != NULL)
+	{
+		penultimate = last;
+		last = last->next;
+	}
+	last->next = first;
+	first->prev = last;
+	penultimate->next = NULL;
+	last->prev = NULL;
+	*list = last;
+}
+
+void	swap(t_stack **list)
+{
+	if (!(*list))
+		return ;
+	if ((*list)->next == NULL)
+		return ;
 	t_stack *first;
 	t_stack *second;
 	int	temp;
-	int	i;
 
-	i = 0;
-	while (array[i])
-	{
-		ft_printf("Array original: %d\n", array[i]);
-		i++;
-	}
-	first = list;
+	first = *list;
 	second = first->next;
 	temp = first->content;
 	first->content = second->content;
-	second->content = temp;
-	while(list != NULL)
-	{
-		ft_printf("Nodos: %d\n", first->content);
-		first = first->next;
-	}	
+	second->content = temp;	
 }

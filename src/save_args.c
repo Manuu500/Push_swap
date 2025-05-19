@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/13 16:04:23 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/19 16:14:19 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,6 @@ char	**parse_char(t_main *main, int ac, char **av)
 	}
 	result = ft_split(value, ' ');
 	i = 0;
-	while (result[i])
-	{
-		ft_printf("Argumento %d: %s\n", i, result[i]);
-		i++;
-	}
 	return (result);
 }
 
@@ -124,6 +119,7 @@ void	 parse_args(t_main *main, int argc, char **argv)
 		i++;
 	}
 	main->a = list;
+	main->b = NULL;
 	validate_dup(main, num_array);
 	main->num_array = num_array;
 	// free (num_array);

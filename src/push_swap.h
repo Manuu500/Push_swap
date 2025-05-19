@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/13 19:37:16 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:57:24 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,27 @@ void		parse_args(t_main *main, int argc, char **argv);
 // int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
 int 		validate_dup(t_main *main, int *nums);
-void	ra(t_stack *list, int *array, int argc);
 //Lists
 t_stack	*ft_lstnew_swap(int content);
 t_stack	*ft_lstlast_swap(t_stack *lst);
 void	ft_lstadd_front_swap(t_stack **lst, t_stack *new);
 void	rotate_pos(t_stack **stack);
 void	ft_lstadd_back_swap(t_stack **lst, t_stack *new);
-void	swap(t_stack *list, int *array);
+void	swap(t_stack **list);
+void	rotate(t_stack **list);
+void	reverse_rotate(t_stack **list);
+void	push(t_stack **listA, t_stack **listB);
+t_stack	*ft_detach(t_stack **list, t_stack *node);
+void	pa(t_main *main);
+void	pb(t_main *main);
+void	sa(t_main *main);
+void	sb(t_main *main);
+void	ss(t_main *main);
+void	ra(t_main *main);
+void	rb(t_main *main);
+void	rr(t_main *main);
+void	rra(t_main *main);
+void	rrb(t_main *main);
+void	rrr(t_main *main);
 
 #endif

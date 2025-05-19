@@ -1,0 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/19 16:02:48 by mruiz-ur          #+#    #+#             */
+/*   Updated: 2025/05/19 16:27:10 by mruiz-ur         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	pa(t_main *main)
+{
+	push(&main->b, &main->a);
+	ft_printf("Se ha hecho un push al stack A\n");
+}
+
+void	pb(t_main *main)
+{
+	push(&main->a, &main->b);
+	ft_printf("Se ha hecho un push al stack B\n");
+}
