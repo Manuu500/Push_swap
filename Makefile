@@ -21,6 +21,7 @@ SRC :=	src/main.c \
 		src/swap.c \
 		src/rotate.c \
 		src/rev_rotate.c \
+		src/stack.c \
 
 OBJ	= $(patsubst src%, obj%, $(SRC:.c=.o))
 
