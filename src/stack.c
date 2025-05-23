@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/23 12:54:39 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:52:09 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,37 @@ void	stack_three(t_main *main)
 	}
 }
 
+void	stack_three_b(t_main *main)
+{
+	int	a;
+	int	b;
+	int	c;
+
+	a = main->b->content;
+	b = main->b->next->content;
+	c = main->b->next->next->content;
+	if (a > b && b > c)
+		return ;
+
+	if (a < b && a < c)
+	{
+		rb(main);
+		if (main->b->content < main->b->next->content)
+			sb(main);
+	}
+	else if (b < a && b < c)
+	{
+		rrb(main);
+		if (main->b->content < main->b->next->content)
+			sb(main);
+	}
+	else
+	{
+		if (a < b)
+			sb(main);
+	}
+}
+
 // void stack_three(t_main *main)
 // {
 // 	int	first;
@@ -87,10 +118,26 @@ void	stack_three(t_main *main)
 // 	}
 // }
 
+t_stack	find_last(t_stack *list)
+{
+	t_stack	last;
+
+	last.content = list->content;
+	while (list)
+	{
+		if (list->next == NULL)
+			last.content = list->content;
+		list = list->next;
+	}
+	ft_printf("EL ULTIMO NUMERO ES: %d\n", last.content);
+	return (last);
+}
+
 void	stack_more(t_main *main)
 {
 	int	cont;
 	int	cont_b;
+	t_stack	last_a;
 	t_stack *temp;
 	t_stack *temp_b;
 
@@ -108,32 +155,39 @@ void	stack_more(t_main *main)
 		cont--;
 	}
 	stack_three(main);
+	last_a = find_last(main->a);
 	temp = main->a;
+	temp_b = main->b;
 	while (temp != NULL)
 	{
 		ft_printf("Nodos A: %d\n", temp->content);
 		temp = temp->next;
 	}
-	temp_b = main->b;
 	while (temp_b != NULL)
 	{
 		cont_b++;
 		if (cont_b == 2)
 			stack_two(main, 1);
-		else if (cont_b > 2)
-		{
-			ft_printf("Contador mas de dos");
-		}
+		else if (cont_b == 3)
+			stack_three_b(main);
 		temp_b = temp_b->next;
 	}
-	// ra(main);
-	// pa(main);
-	// rra(main);
+	temp = main->a;
+	temp_b = main->b;
+	while(temp_b)
+	{
+		if (temp_b->content > last_a.content)
+			ra(main);
+		else if (temp_b->content < last_a.prev->content)
+			ra(main);
+		temp_b = temp_b->next;
+		pa(main);
+	}
 	ft_printf("Contador: %d\n", cont);
-	temp = main->b;
+	temp = main->a;
 	while (temp != NULL)
 	{
-		ft_printf("Nodos B: %d\n", temp->content);
+		ft_printf("Nodos A: %d\n", temp->content);
 		temp = temp->next;
 	}
 }

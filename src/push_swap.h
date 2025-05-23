@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/23 12:54:46 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/23 13:37:04 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ void	rrr(t_main *main);
 void	stack_two(t_main *main, int flag);
 void stack_three(t_main *main);
 void	stack_more(t_main *main);
+void	stack_three_b(t_main *main);
+t_stack	find_last(t_stack *list);
 
 #endif
