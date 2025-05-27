@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 17:23:44 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:02:46 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	initialize_vars(t_main	*main, char **argv, int argc)
 	if (!main->argv)
 		ft_error(main, "The amount of argvs has not been saved");
 	main->c_arg_count = 0;
-
 }
 
 int	count_args(t_main *main)

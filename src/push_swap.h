@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 16:45:56 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:00:59 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct main
 	int		c_arg_count;
 	t_stack	*a;
 	t_stack *b;
+	t_stack *list;
 }				t_main;
 
 

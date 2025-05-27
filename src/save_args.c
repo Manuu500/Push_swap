@@ -6,66 +6,11 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 17:55:08 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:08:43 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// static void	join_args()
-// {
-	
-// }
-
-// void	save_args(t_main *main)
-// {
-// 	int	num;
-// 	int	check;
-// 	int	i;
-
-// 	check = 0;
-// 	main->arg_alloc_i = malloc(sizeof(int) * main->argc);
-// 	if (!main->arg_alloc_i)
-// 		ft_error(main, "The alloc failed on save_numbers function");
-// 	i = 1;
-// 	while (i < main->argc)
-// 	{
-// 		check = is_valid_number(main, i);
-// 		if (check == 1)
-// 			ft_error(main, "One argument is not a number");
-// 		num = ft_atoll(main, main->argv[i]);
-// 		check_num_limit(main, num);
-// 		main->arg_alloc_i[i] = num;
-// 		i++;
-// 	}
-// 	check_dup_num(main);
-// }
-
-// void	save_args2(t_main *main, int flag)
-// {
-// 	int	i;
-// 	int	num;
-	
-// 	i = 0;
-// 	if (flag == 1)
-// 		alloc_args(main, 1);
-// 	else
-// 		alloc_args(main, 0);
-// 	count_args(main);
-// 	main->arg_alloc_i = malloc(sizeof(int) * main->c_arg_count);
-// 	if (!main->arg_alloc_i)
-// 		ft_error(main, "Couldnt alloc in save_args2");
-// 	i = 0;
-// 	while (main->arg_matrix[i])
-// 	{
-// 		is_valid_number_s(main, i);
-// 		num = ft_atoll(main, main->arg_matrix[i]);
-// 		check_num_limit(main, num);
-// 		main->arg_alloc_i[i] = num;
-// 		i++;
-// 	}
-// 	check_dup_num_c(main);
-// }
 
 char	**parse_char(t_main *main, int ac, char **av)
 {
@@ -93,10 +38,30 @@ char	**parse_char(t_main *main, int ac, char **av)
 	return (result);
 }
 
+static void	create_list(t_main *main, char **av_array, int *num_array)
+{
+	t_stack	*new_node;
+	t_stack	*list;
+	int		i;
+	
+	list = NULL;
+	i = 0;
+	while (av_array[i])
+	{
+		num_array[i] = ft_atoll(main, av_array[i]);
+		new_node = ft_lstnew_swap(num_array[i]);
+		ft_lstadd_back_swap(&list, new_node);
+		i++;
+	}
+	main->a = list;
+	main->b = NULL;
+	validate_dup(main, num_array);
+	main->num_array = num_array;
+}
+
 void	 parse_args(t_main *main, int argc, char **argv)
 {
 	t_stack	*list;
-	t_stack	*new_node;
 	char	**av_array;
 	int		*num_array;
 	int	i;
@@ -110,17 +75,6 @@ void	 parse_args(t_main *main, int argc, char **argv)
 	num_array = malloc(sizeof(int) * i);
 	if (!num_array)
 		exit(EXIT_FAILURE);
-	i = 0;
-	while (av_array[i])
-	{
-		num_array[i] = ft_atoll(main, av_array[i]);
-		new_node = ft_lstnew_swap(num_array[i]);
-		ft_lstadd_back_swap(&list, new_node);
-		i++;
-	}
-	main->a = list;
-	main->b = NULL;
-	validate_dup(main, num_array);
-	main->num_array = num_array;
+	create_list(main, av_array, num_array);
 	free (num_array);
 }
