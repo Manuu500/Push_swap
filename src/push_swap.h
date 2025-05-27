@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 18:00:59 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 18:11:39 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ typedef struct main
 	int		argc;
 	int		*num_array;
 	int		c_arg_count;
+	int		a_int;
+	int		b_int;
+	int		c_int;
 	t_stack	*a;
 	t_stack *b;
 	t_stack *list;
