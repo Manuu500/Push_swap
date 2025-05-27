@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/23 13:52:09 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:51:12 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,29 +95,6 @@ void	stack_three_b(t_main *main)
 	}
 }
 
-// void stack_three(t_main *main)
-// {
-// 	int	first;
-// 	int	smaller;
-// 	t_stack	*tmp;
-	
-// 	first = main->a->content;
-// 	smaller = first;
-// 	tmp = main->a;
-// 	while (tmp->next != NULL)
-// 	{
-// 		if (tmp->next->content < first)
-// 		{
-// 			smaller = tmp->next->content;
-// 			rra(main);
-// 			tmp = main->a;
-// 		}
-// 		else if (tmp->content < smaller)
-// 			sa(main);
-// 		tmp = tmp->next;
-// 	}
-// }
-
 t_stack	find_last(t_stack *list)
 {
 	t_stack	last;
@@ -129,7 +106,6 @@ t_stack	find_last(t_stack *list)
 			last.content = list->content;
 		list = list->next;
 	}
-	ft_printf("EL ULTIMO NUMERO ES: %d\n", last.content);
 	return (last);
 }
 
@@ -137,7 +113,7 @@ void	stack_more(t_main *main)
 {
 	int	cont;
 	int	cont_b;
-	t_stack	last_a;
+	int	pos;
 	t_stack *temp;
 	t_stack *temp_b;
 
@@ -155,14 +131,7 @@ void	stack_more(t_main *main)
 		cont--;
 	}
 	stack_three(main);
-	last_a = find_last(main->a);
-	temp = main->a;
 	temp_b = main->b;
-	while (temp != NULL)
-	{
-		ft_printf("Nodos A: %d\n", temp->content);
-		temp = temp->next;
-	}
 	while (temp_b != NULL)
 	{
 		cont_b++;
@@ -172,23 +141,45 @@ void	stack_more(t_main *main)
 			stack_three_b(main);
 		temp_b = temp_b->next;
 	}
-	temp = main->a;
-	temp_b = main->b;
-	while(temp_b)
+	while(main->b)
 	{
-		if (temp_b->content > last_a.content)
-			ra(main);
-		else if (temp_b->content < last_a.prev->content)
-			ra(main);
-		temp_b = temp_b->next;
+		pos = find_insert_position(main, main->b->content);
+		move_to_position(main, pos);
 		pa(main);
 	}
-	ft_printf("Contador: %d\n", cont);
-	temp = main->a;
-	while (temp != NULL)
-	{
-		ft_printf("Nodos A: %d\n", temp->content);
-		temp = temp->next;
-	}
+	rotate_to_min(main);
 }
 
+// void	stack_more(t_main *main)
+// {
+// 	t_stack *stack_b;
+// 	t_stack *stack;
+// 	int	cont;
+// 	int	i;
+	
+// 	i = -1;
+// 	cont = 0;
+// 	stack = main->a;
+// 	stack_b = main->b;
+// 	while (stack)
+// 	{
+// 		cont++;
+// 		stack = stack->next;
+// 	}
+// 	while (i < cont)
+// 	{
+// 		pb(main);
+// 		if (i == 2)
+// 			stack_two(main, 1);
+// 		else if (i == 3)
+// 			stack_three(main);
+// 		i++;
+// 	}
+// 	stack_b = main->b;
+// 	while (stack_b)
+//  	{
+//  		ft_printf("Nodos B: %d\n", stack_b->content);
+// 		stack_b = stack_b->next;
+// 	}
+
+// }

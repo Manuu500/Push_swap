@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/23 13:37:04 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/27 16:45:56 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,9 @@ void stack_three(t_main *main);
 void	stack_more(t_main *main);
 void	stack_three_b(t_main *main);
 t_stack	find_last(t_stack *list);
+int find_insert_position(t_main *main, int value);
+void move_to_position(t_main *main, int pos);
+void rotate_to_min(t_main *main);
+void	print_list(t_main *main);
 
 #endif
