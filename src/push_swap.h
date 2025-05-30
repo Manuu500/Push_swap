@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 14:55:40 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:25:05 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ int find_insert_position(t_main *main, int value);
 void move_to_position(t_main *main, int pos);
 void rotate_to_min(t_main *main);
 void	print_list(t_main *main);
+int	check_ordered(t_main *main);
 
 #endif

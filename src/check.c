@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 14:46:55 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:26:40 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,23 @@ int validate_dup(t_main *main, int *nums)
 		i++;
 	}
 	return (1);
+}
+
+int	check_ordered(t_main *main)
+{
+	t_stack *temp;
+	int	count;
+	
+	count = 1;
+	temp = main->a;
+	while (temp->next != NULL)
+	{
+		if (temp->next->content > temp->content)
+			count++;
+		temp = temp->next;
+	}
+	if (count == main->ar_count)
+		return (1);
+	else
+		return (0);
 }
