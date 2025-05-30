@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 17:55:39 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 13:03:56 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	is_valid_number(t_main *main, char **nums)
 	while (nums[i])
 	{
 		j = 0;
+		if ((nums[i][j] == '-' && nums[i][j + 1] == '0') &&
+			(nums[i][j + 2] == ' ' || nums[i][j + 2] == '\0'))
+			ft_error(main, "One argument is not valid");
 		if (nums[i][j] == '-' || nums[i][j] == '+')
 			j++;
 		while (nums[i][j])
