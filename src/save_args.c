@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 12:53:31 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 14:56:13 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,17 @@ static void	create_list(t_main *main, char **av_array, int *num_array)
 	t_stack	*new_node;
 	t_stack	*list;
 	int		i;
+	int		array_size;
 	
 	list = NULL;
 	i = 0;
-	while (av_array[i])
+	array_size = 0;
+	while (av_array[array_size])
+		array_size++;
+	while (i < array_size)
 	{
 		num_array[i] = ft_atoll(main, av_array[i]);
+		check_num_limit(main, num_array[i]);
 		new_node = ft_lstnew_swap(num_array[i]);
 		ft_lstadd_back_swap(&list, new_node);
 		i++;
@@ -64,7 +69,8 @@ void	 parse_args(t_main *main, int argc, char **argv)
 	t_stack	*list;
 	char	**av_array;
 	int		*num_array;
-	int	i;
+	int		i;
+	int		j;
 
 	i = 0;
 	list = NULL;
@@ -72,9 +78,16 @@ void	 parse_args(t_main *main, int argc, char **argv)
 	av_array = parse_char(main, argc, argv);
 	while (av_array[i]) 
 		i++;
+	main->ar_count = i;
 	num_array = malloc(sizeof(int) * i);
 	if (!num_array)
 		exit(EXIT_FAILURE);
 	create_list(main, av_array, num_array);
-	free (num_array);
+	j = 0;
+	while (av_array[j])
+	{
+		free(av_array[j]);
+		j++;
+	}
+	free(av_array);
 }

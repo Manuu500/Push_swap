@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:02:48 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/22 18:00:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:14:26 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ void	pa(t_main *main)
 void	pb(t_main *main)
 {
 	push(&main->a, &main->b);
-	ft_printf("Se ha hecho un push al stack B\n");
+	ft_printf("pb\n");
 }

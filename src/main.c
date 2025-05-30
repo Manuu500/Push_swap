@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 18:09:46 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:16:15 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,14 @@ int	main(int argc, char **argv)
 	initialize_vars(&main, argv, argc);
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
-	
-	if (argc == 2)
-		ft_printf(argv[1]);
-	else if (argc == 3)
-	{
+	if (main.ar_count == 1)
+		return 0;
+	else if (main.ar_count == 2)
 		stack_two(&main, 0);
-		print_list(&main);
-	}
-	else if (argc == 4)
-	{
+	else if (main.ar_count == 3)
 		stack_three(&main);
-		print_list(&main);
-	}
-	else 
-	{
-		stack_more(&main);
-		print_list(&main);
-	}
+	else
+	stack_more(&main);
+	print_list(&main);
 	return (0);
 }

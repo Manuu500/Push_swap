@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/23 12:32:37 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/05/30 15:02:03 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,15 @@ void	reverse_rotate(t_stack **list)
 
 void	swap(t_stack **list)
 {
-	if (!(*list))
-		return ;
-	if ((*list)->next == NULL)
-		return ;
 	t_stack *first;
 	t_stack *second;
 	int	temp;
 
+	if (!(*list))
+		return ;
+	if ((*list)->next == NULL)
+		return ;
+	
 	first = *list;
 	second = first->next;
 	temp = first->content;
