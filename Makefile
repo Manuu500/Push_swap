@@ -23,6 +23,9 @@ SRC :=	src/main.c \
 		src/rev_rotate.c \
 		src/stack.c \
 		src/more_utils.c \
+		src/push_in.c \
+		src/check_size.c \
+		src/move.c
 
 OBJ	= $(patsubst src%, obj%, $(SRC:.c=.o))
 

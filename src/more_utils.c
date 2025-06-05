@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:32:22 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 16:45:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/05 14:59:36 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,3 +119,63 @@ void	print_list(t_main *main)
 		stack = stack->next;
 	}
 }
+
+t_stack	*place_in_stack_a(t_stack *stack, t_stack *node)
+{
+	t_stack	*lowest;
+	t_stack	*current;
+	t_stack	*closest;
+
+	lowest = stack;
+	current = lowest;
+	closest = 0;
+	while (current)
+	{
+		if (!closest)
+		{
+			if (current->content < lowest->content)
+				lowest = current;
+			if (current->content > node->content)
+				closest = current;
+		}
+		else if (current->content < closest->content
+			&& current->content > node->content)
+			closest = current;
+		current = current->next;
+	}
+	if (closest)
+		return (closest);
+	return (lowest);
+}
+
+t_stack	*place_in_stack_b(t_stack *stack, t_stack *node)
+{
+	t_stack	*biggest;
+	t_stack	*current;
+	t_stack	*closest;
+
+	biggest = stack;
+	current = biggest;
+	closest = 0;
+	while (current)
+	{
+		if (!closest)
+		{
+			if (current->content > biggest->content)
+				biggest = current;
+			if (current->content < node->content)
+				closest = current;
+		}
+		else if (current->content > closest->content
+			&& current->content < node->content)
+			closest = current;
+		current = current->next;
+	}
+	if (closest)
+		return (closest);
+	return (biggest);
+}
+/*
+2 
+3 1 6 5 4 -1
+*/

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 15:27:11 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/02 15:54:45 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ int	main(int argc, char **argv)
 		else if (main.ar_count == 3)
 			stack_three(&main);
 		else
-		stack_more(&main);
-		// print_list(&main);
+			stack_more(&main);
 	}
 	return (0);
 }

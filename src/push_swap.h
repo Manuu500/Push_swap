@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 15:25:05 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:08:16 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 # include "../libs/libft/libft.h"
 # include <limits.h>
 
+typedef enum s_direc
+{
+	ANY,
+	UP,
+	DOWN,
+	MIXED,
+}	t_direc;
+
 typedef struct s_stack
 {
 	int	content;
@@ -22,6 +30,27 @@ typedef struct s_stack
 	struct s_stack *prev;
 	struct s_stack *next;
 }				t_stack;
+
+typedef struct s_prep
+{
+	t_stack *node;
+	int	cost;
+	t_direc	direc;
+}				t_prep;
+
+typedef struct s_cost
+{
+	int	total;
+	t_direc	direc;
+	t_prep	prep_a;
+	t_prep	prep_b;
+}				t_cost;
+
+typedef enum e_bool
+{
+	false,
+	true,
+}	t_bool;
 
 typedef struct main
 {
@@ -86,11 +115,23 @@ void	stack_two(t_main *main, int flag);
 void stack_three(t_main *main);
 void	stack_more(t_main *main);
 void	stack_three_b(t_main *main);
-t_stack	find_last(t_stack *list);
+t_stack	*find_last(t_stack *lst);
 int find_insert_position(t_main *main, int value);
 void move_to_position(t_main *main, int pos);
 void rotate_to_min(t_main *main);
 void	print_list(t_main *main);
 int	check_ordered(t_main *main);
+int ft_lstprevsize(t_stack *list);
+int ft_lstnextsize(t_stack *list);
+t_prep	set_prep(t_stack *node, int cost, t_direc dir);
+t_prep	cost_to_put_first(t_stack *node);
+t_stack	*place_in_stack_a(t_stack *stack, t_stack *node);
+t_stack	*place_in_stack_b(t_stack *stack, t_stack *node);
+void	put_cheapest(t_main *main, t_bool stack_a);
+int	ft_lstsize_ps(t_stack *list);
+void	mixed_move(t_main *main, t_cost move);
+void	perf_move(t_main *main, t_cost move, t_bool stack_a);
+void	initial_desp(t_main *main);
+void	final_sort(t_main *main);
 
 #endif

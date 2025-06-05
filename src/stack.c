@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 18:26:41 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:09:13 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,46 +86,63 @@ void	stack_three_b(t_main *main)
 	}
 }
 
-t_stack	find_last(t_stack *list)
+t_stack	*find_last(t_stack *lst)
 {
-	t_stack	last;
-
-	last.content = list->content;
-	while (list)
+	if (!lst)
+		return (NULL);
+	while (lst->next)
 	{
-		if (list->next == NULL)
-			last.content = list->content;
-		list = list->next;
+		lst = lst->next;	
 	}
-	return (last);
+	return (lst);
 }
+
+void	initial_desp(t_main *main)
+{
+	if (ft_lstsize_ps(main->a) > 3)
+	{
+		if (ft_lstsize_ps(main->a) > 4)
+			pb(main);
+		pb(main);
+	}
+}
+
+// void	stack_more(t_main *main)
+// {
+// 	int	cont;
+// 	int	pos;
+// 	t_stack *temp;
+
+// 	cont = 0;
+// 	temp = main->a;
+// 	while (temp != NULL)
+// 	{
+// 		temp = temp->next;
+// 		cont++;
+// 	}
+// 	while (cont > 3)
+// 	{
+// 		pb(main);
+// 		cont--;
+// 	}
+// 	stack_three(main);
+// 	while(main->b)
+// 	{
+// 		pos = find_insert_position(main, main->b->content);
+// 		move_to_position(main, pos);
+// 		pa(main);
+// 	}
+// 	rotate_to_min(main);
+// }
 
 void	stack_more(t_main *main)
 {
-	int	cont;
-	int	pos;
-	t_stack *temp;
-
-	cont = 0;
-	temp = main->a;
-	while (temp != NULL)
-	{
-		temp = temp->next;
-		cont++;
-	}
-	while (cont > 3)
-	{
-		pb(main);
-		cont--;
-	}
+	initial_desp(main);
+	while (ft_lstsize_ps(main->a) > 3)
+		put_cheapest(main, 1);
 	stack_three(main);
-	while(main->b)
-	{
-		pos = find_insert_position(main, main->b->content);
-		move_to_position(main, pos);
-		pa(main);
-	}
-	rotate_to_min(main);
+	while (ft_lstsize_ps(main->b))
+		put_cheapest(main, 0);
 }
 
 
