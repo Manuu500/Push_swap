@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/05 16:09:13 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:15:59 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ void	stack_more(t_main *main)
 	stack_three(main);
 	while (ft_lstsize_ps(main->b))
 		put_cheapest(main, 0);
+	final_sort(main);
 }
 
 
