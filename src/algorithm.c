@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/30 15:02:03 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:32:43 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	rotate(t_stack **list)
 	first = *list;
 	second = first->next;
 	last = first;
-	while (last->next != NULL)
+	while (last->next)
 	{	
 		last = last->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/05 16:08:16 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:37:29 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ t_stack	*find_last(t_stack *lst);
 int find_insert_position(t_main *main, int value);
 void move_to_position(t_main *main, int pos);
 void rotate_to_min(t_main *main);
-void	print_list(t_main *main);
+void	print_list(t_stack *main);
 int	check_ordered(t_main *main);
 int ft_lstprevsize(t_stack *list);
 int ft_lstnextsize(t_stack *list);

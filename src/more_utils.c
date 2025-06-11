@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:32:22 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/05 14:59:36 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:38:56 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,15 @@ void rotate_to_min(t_main *main)
     move_to_position(main, min_pos);
 }
 
-void	print_list(t_main *main)
+void	print_list(t_stack *main)
 {
-	t_stack *stack;
-
-	stack = main->a;
-	while (stack)
+		ft_printf("list:  ");
+	while (main)
 	{
-		ft_printf("%d\n", stack->content);
-		stack = stack->next;
+		ft_printf("%d ", main->content);
+		main = main->next;
 	}
+	ft_printf("\n");
 }
 
 t_stack	*place_in_stack_a(t_stack *stack, t_stack *node)

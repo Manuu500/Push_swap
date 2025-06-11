@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:13:13 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/05 15:43:14 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:25:40 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_lstnextsize(t_stack *list)
 	i = 0;
 	if (!list)
 		return (0);
-	while (list)
+	while (list->next)
 	{
 		i++;
 		list = list->next;

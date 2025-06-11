@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 18:51:30 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/19 16:16:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/11 15:19:10 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	rotate_pos(t_stack **stack)
 
 void	ft_lstadd_front_swap(t_stack **lst, t_stack *new)
 {
+	if (*lst)
+		(*lst)->prev = new;
 	new->next = *lst;
 	*lst = new;
 }
