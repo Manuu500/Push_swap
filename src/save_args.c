@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 14:46:01 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 14:57:05 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	parse_char(t_main *main, int ac, char **av)
 	int		i;
 	
 	i = 1;
-	value = ft_strdup("");
 	if (ac == 1)
 		ft_error(main, "There's only one argument");
+	value = ft_strdup("");
 	while (av[i])
 	{
 		temp = value;
@@ -69,7 +69,6 @@ void	 parse_args(t_main *main, int argc, char **argv)
 	// char	**av_array;
 	int		*num_array;
 	int		i;
-	int		j;
 
 	i = 0;
 	list = NULL;
@@ -83,13 +82,4 @@ void	 parse_args(t_main *main, int argc, char **argv)
 		exit(EXIT_FAILURE);
 	main->num_array = num_array;
 	create_list(main, main->av_array, num_array);
-	j = 0;
-	// while (av_array[j])
-	// {
-	// 	free(av_array[j]);
-	// 	j++;
-	// }
-	// free(av_array);
-	// free_matrix(main->av_array);
-	
 }
