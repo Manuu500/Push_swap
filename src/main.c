@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 16:18:18 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:34:28 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	main(int argc, char **argv)
 	initialize_vars(&main, argv, argc);
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
-	if (check_ordered(&main) == 1)
-		return (0);
-	else
+	if (check_ordered(&main) != 1)
 	{
 		if (main.ar_count == 1)
 			return (0);

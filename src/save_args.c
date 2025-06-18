@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 16:16:51 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 17:32:12 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	parse_char(t_main *main, int ac, char **av)
 
 	i = 1;
 	if (ac == 1)
-		ft_error(main, "There's only one argument");
+		exit(EXIT_FAILURE);
 	value = ft_strdup("");
 	while (av[i])
 	{

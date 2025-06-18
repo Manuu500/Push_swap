@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 16:20:12 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:59:01 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,16 @@ void	stack_two(t_main *main, int flag)
 	if (flag == 0)
 	{
 		first = main->a->content;
-		if (first < main->a->next->content)
+		if (first > main->a->next->content)
 			sa(main);
-		else
-			return ;
+		return ;
 	}
 	else if (flag == 1)
 	{
 		first = main->b->content;
-		if (first < main->b->next->content)
+		if (first > main->b->next->content)
 			sb(main);
-		else
-			return ;
+		return ;
 	}
 }
 
