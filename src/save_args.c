@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 14:57:05 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:16:51 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	parse_char(t_main *main, int ac, char **av)
 {
-	// char		**result;
 	char	*value;
 	char	*temp;
 	int		i;
-	
+
 	i = 1;
 	if (ac == 1)
 		ft_error(main, "There's only one argument");
@@ -43,7 +42,7 @@ static void	create_list(t_main *main, char **av_array, int *num_array)
 	t_stack	*list;
 	int		i;
 	int		array_size;
-	
+
 	list = NULL;
 	i = 0;
 	array_size = 0;
@@ -63,10 +62,9 @@ static void	create_list(t_main *main, char **av_array, int *num_array)
 	validate_dup(main, num_array);
 }
 
-void	 parse_args(t_main *main, int argc, char **argv)
+void	parse_args(t_main *main, int argc, char **argv)
 {
 	t_stack	*list;
-	// char	**av_array;
 	int		*num_array;
 	int		i;
 
@@ -74,7 +72,7 @@ void	 parse_args(t_main *main, int argc, char **argv)
 	list = NULL;
 	num_array = NULL;
 	parse_char(main, argc, argv);
-	while (main->av_array[i]) 
+	while (main->av_array[i])
 		i++;
 	main->ar_count = i;
 	num_array = malloc(sizeof(int) * i);

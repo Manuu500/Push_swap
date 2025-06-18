@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 15:52:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:17:49 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	count_args(t_main *main)
 long long	ft_atoll(t_main *main, const char *str)
 {
 	ssize_t		i;
-	long long			n;
+	long long	n;
 	int			sign;
 
 	n = 0;

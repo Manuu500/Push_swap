@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 13:18:41 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:12:53 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	is_valid_number(t_main *main, char **nums)
 		if (nums[i][j] == '-' || nums[i][j] == '+')
 			j++;
 		if (nums[i][j] == '\0')
-			ft_error(main, "One argument is not valid");	
+			ft_error(main, "One argument is not valid");
 		while (nums[i][j])
 		{
 			if (nums[i][j] == ' ')
@@ -47,12 +47,12 @@ int	is_valid_number(t_main *main, char **nums)
 	return (1);
 }
 
-int validate_dup(t_main *main, int *nums)
+int	validate_dup(t_main *main, int *nums)
 {
-	int	i;
-	int	j;
-	int	array_size;
-	t_stack *temp;
+	int		array_size;
+	t_stack	*temp;
+	int		i;
+	int		j;
 
 	array_size = 0;
 	temp = main->a;
@@ -78,9 +78,9 @@ int validate_dup(t_main *main, int *nums)
 
 int	check_ordered(t_main *main)
 {
-	t_stack *temp;
-	int	count;
-	
+	t_stack	*temp;
+	int		count;
+
 	count = 1;
 	temp = main->a;
 	while (temp->next != NULL)

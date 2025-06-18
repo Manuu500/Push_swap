@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:03:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 16:03:39 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:10:04 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_prep	cost_to_put_first(t_stack *node)
 t_cost	cost_to_push(t_main *main, t_stack *current, t_bool stack_a)
 {
 	t_cost	value;
-	
+
 	value.prep_a = cost_to_put_first(current);
 	if (stack_a)
 		value.prep_b = cost_to_put_first(place_in_stack_b(main->b, current));
@@ -43,23 +43,23 @@ t_cost	cost_to_push(t_main *main, t_stack *current, t_bool stack_a)
 	{
 		if (value.prep_b.direc != DOWN)
 			value.direc = UP;
-		else 
+		else
 			value.direc = MIXED;
 	}
 	if (value.prep_a.direc == DOWN)
 	{
 		if (value.prep_b.direc != UP)
 			value.direc = DOWN;
-		else 
+		else
 			value.direc = MIXED;
 	}
-	return (value);		
+	return (value);
 }
 
 void	put_cheapest(t_main *main, t_bool stack_a)
 {
+	t_stack	*current;
 	t_prep	placeholder;
-	t_stack *current;
 	t_cost	cheapest_cost;
 	t_cost	current_cost;
 

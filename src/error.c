@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:26 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 15:53:07 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:57:33 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,13 @@ int	ft_error(t_main *main, char *message)
 			free(main->list);
 		if (main->num_array)
 			free(main->num_array);
-		// if (main->av_array)
-		// 	free(main->num_array);
 	}
 	exit (1);
 }
 
 void	free_matrix(char **matrix)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!matrix)

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 16:18:15 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 16:07:48 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:20:12 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	stack_two(t_main *main, int flag)
 {
 	int	first;
-	
+
 	if (flag == 0)
 	{
 		first = main->a->content;
@@ -86,17 +86,6 @@ void	stack_three_b(t_main *main)
 	}
 }
 
-t_stack	*find_last(t_stack *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-	{
-		lst = lst->next;	
-	}
-	return (lst);
-}
-
 void	initial_desp(t_main *main)
 {
 	if (ft_lstsize_ps(main->a) > 3)
@@ -144,8 +133,4 @@ void	stack_more(t_main *main)
 	while (ft_lstsize_ps(main->b))
 		put_cheapest(main, 0);
 	final_sort(main);
-	//print_list(main->a);
-	//print_list(main->b);
 }
-
-

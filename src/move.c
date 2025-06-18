@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 15:48:06 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 14:55:24 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 16:15:10 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	mixed_move(t_main *main, t_cost move)
 		while (move.prep_b.node->prev)
 			rrb(main);
 }
-
 
 void	perf_move(t_main *main, t_cost move, t_bool stack_a)
 {
