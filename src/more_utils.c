@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 15:32:22 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 15:38:56 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/17 12:30:10 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,21 @@ t_stack	*place_in_stack_b(t_stack *stack, t_stack *node)
 	if (closest)
 		return (closest);
 	return (biggest);
+}
+
+void free_stack(t_stack **stack)
+{
+    t_stack *current;
+    t_stack *next;
+
+    current = *stack;
+    while (current)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    *stack = NULL;
 }
 /*
 2 

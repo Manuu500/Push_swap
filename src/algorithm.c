@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:32:49 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 15:32:43 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:55:17 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_stack	*ft_detach(t_stack **list, t_stack *node)
 void	rotate(t_stack **list)
 {
 	t_stack	*first;
-	t_stack *second;
+	t_stack	*second;
 	t_stack	*last;
 
 	if (!*list)
@@ -46,7 +46,7 @@ void	rotate(t_stack **list)
 	second = first->next;
 	last = first;
 	while (last->next)
-	{	
+	{
 		last = last->next;
 	}
 	last->next = first;
@@ -58,16 +58,14 @@ void	rotate(t_stack **list)
 
 void	reverse_rotate(t_stack **list)
 {
-	t_stack *penultimate;
-	t_stack *first;
-	// t_stack *second;
-	t_stack *last;
+	t_stack	*penultimate;
+	t_stack	*first;
+	t_stack	*last;
 
 	if (!*list)
 		return ;
 	penultimate = NULL;
 	first = *list;
-	// second = first->next;
 	last = first;
 	while (last->next != NULL)
 	{
@@ -83,18 +81,17 @@ void	reverse_rotate(t_stack **list)
 
 void	swap(t_stack **list)
 {
-	t_stack *first;
-	t_stack *second;
-	int	temp;
+	t_stack	*first;
+	t_stack	*second;
+	int		temp;
 
 	if (!(*list))
 		return ;
 	if ((*list)->next == NULL)
 		return ;
-	
 	first = *list;
 	second = first->next;
 	temp = first->content;
 	first->content = second->content;
-	second->content = temp;	
+	second->content = temp;
 }

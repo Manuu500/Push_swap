@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/02 15:54:45 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 13:02:09 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_main	main;
 	
+	ft_bzero(&main, sizeof(main));
 	initialize_vars(&main, argv, argc);
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
@@ -32,5 +33,9 @@ int	main(int argc, char **argv)
 		else
 			stack_more(&main);
 	}
+	free_stack(&main.a);
+	free_stack(&main.b);
+	if (main.num_array)
+		free(main.num_array);
 	return (0);
 }

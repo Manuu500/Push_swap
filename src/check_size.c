@@ -6,13 +6,13 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 14:13:13 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/11 15:25:40 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:55:57 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_lstprevsize(t_stack *list)
+int	ft_lstprevsize(t_stack *list)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int ft_lstprevsize(t_stack *list)
 	return (i);
 }
 
-int ft_lstnextsize(t_stack *list)
+int	ft_lstnextsize(t_stack *list)
 {
 	int	i;
 
