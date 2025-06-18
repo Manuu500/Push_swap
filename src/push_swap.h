@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 14:40:09 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:52:39 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void		save_args(t_main *main);
 void		check_num_limit(t_main *main, long long num);
 void		check_dup_num(t_main *main, char **nums, int argc);
 int			is_valid_number(t_main *main, char **nums);
-// void		is_valid_number_s(t_main *main, int i);
 void		save_args2(t_main *main, int flag);
 int			count_args(t_main *main);
 void		free_matrix(char **matrix);
@@ -87,7 +86,6 @@ void		save_args3(t_main *main);
 void		alloc_args(t_main *main, int flag);
 void		parse_char(t_main *main, int ac, char **av);
 void		parse_args(t_main *main, int argc, char **argv);
-// int			validate_nums(char **nums, int ac);
 int			check_duplicated(char **nums, int argc);
 int 		validate_dup(t_main *main, int *nums);
 //Lists
@@ -135,5 +133,6 @@ void	perf_move(t_main *main, t_cost move, t_bool stack_a);
 void	initial_desp(t_main *main);
 void	final_sort(t_main *main);
 void free_stack(t_stack **stack);
+void	check_num_beyond(t_main *main, long long n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:43:02 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/05/27 18:22:59 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 15:52:45 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ long long	ft_atoll(t_main *main, const char *str)
 		n = (n * 10) + (str[i] - '0');
 		i++;
 	}
-	if (n > INT_MAX || n < INT_MIN)
-		ft_error(main, "One number is beyond the limits");
+	check_num_beyond(main, n);
 	return (n * sign);
 }
