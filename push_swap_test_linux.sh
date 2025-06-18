@@ -3737,7 +3737,7 @@ elif [ $N -gt 11500 ]; then
 	printf "${RED}[KO][1/5]${DEF_COLOR}";
 fi
 S=$(./push_swap $ARG | ./checker_linux $ARG)
-if [ $S == "OK" ]; then
+if [ $S -eq "OK" ]; then
 	printf "${GREEN} [OK]${DEF_COLOR}\n";
 else
 	printf "${RED} [KO]${DEF_COLOR}\n";
@@ -4258,11 +4258,11 @@ printf ${MAGENTA}"\n------------------------------------------------------------
 printf ${MAGENTA}"\n\t\t\tCONTROL ERRORS\t\n"${DEF_COLOR};
 printf ${MAGENTA}"\n-------------------------------------------------------------\n\n"${DEF_COLOR};
 
-./checker "a" 2> test_check.txt > /dev/null
+./checker_linux "a" 2> test_check.txt > /dev/null
 if [ -s "$FICHERO" ];then
 while IFS= read -r line
 do
-  if [[ $line == "Error" ]]; then
+  if [[ $line == "Error\n" ]]; then
   	printf "${GREEN}1.[OK] ${DEF_COLOR}\n";
   else
   	printf "${RED}1.[KO] ${DEF_COLOR}\n";

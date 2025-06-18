@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 17:34:28 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:11:01 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,17 @@
 int	main(int argc, char **argv)
 {
 	t_main	main;
-
+	int		i;
+	
+	i = 0;
 	ft_bzero(&main, sizeof(main));
 	initialize_vars(&main, argv, argc);
+	while (argv[i])
+	{
+		if (ft_strlen(argv[i]) == 0)
+			ft_error(&main, "Error");
+		i++;
+	}
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
 	if (check_ordered(&main) != 1)
@@ -37,3 +45,24 @@ int	main(int argc, char **argv)
 		free(main.num_array);
 	return (0);
 }
+
+// void	free_stack(t_stack **stack)
+// {
+// 	t_stack	*current;
+// 	t_stack	*next;
+
+//     if (!stack || !(*stack))
+//         return;
+    
+//     current = *stack;
+// 	while (current)
+// 	{
+// 		if (current->next)
+// 			next = current->next;
+// 		if (current)
+// 			free(current);
+// 		if (next)
+// 			current = next;
+// 	}
+// 	*stack = NULL;
+// }

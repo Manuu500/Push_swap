@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 17:32:12 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:37:18 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	parse_char(t_main *main, int ac, char **av)
 		i++;
 	}
 	main->av_array = ft_split(value, ' ');
+	if (!main->av_array)
+		ft_error(main, "Memory allocation error");
 	free(value);
 }
 
@@ -58,8 +60,8 @@ static void	create_list(t_main *main, char **av_array, int *num_array)
 	}
 	main->a = list;
 	main->b = NULL;
-	free_matrix(main->av_array);
 	validate_dup(main, num_array);
+	free_matrix(main->av_array);
 }
 
 void	parse_args(t_main *main, int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:26 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 15:57:33 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:59:06 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	free_matrix(char **matrix)
 
 void	check_num_beyond(t_main *main, long long n)
 {
-	if (n > INT_MAX || n < INT_MIN)
+	if (n > 2147483648 || n < -2147483648)
 	{
 		free_matrix(main->av_array);
-		ft_error(main, "One number is beyond the limits");
+		ft_error(main, "Error");
 	}
 }

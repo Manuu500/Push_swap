@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 16:12:53 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 18:35:19 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	check_num_limit(t_main *main, long long num)
 {
-	if (num > INT_MAX || num < INT_MIN)
-		ft_error(main, "Number exceeds integer limits");
+	if (num > 2147483648 || num < -2147483648){
+		ft_error(main, "Error");	
+	}
 }
 
 int	is_valid_number(t_main *main, char **nums)
@@ -27,20 +28,19 @@ int	is_valid_number(t_main *main, char **nums)
 	while (nums[i])
 	{
 		j = 0;
-		while (nums[i][j] == ' ')
-			j++;
-		if (nums[i][j] == '-' || nums[i][j] == '+')
-			j++;
-		if (nums[i][j] == '\0')
-			ft_error(main, "One argument is not valid");
 		while (nums[i][j])
 		{
-			if (nums[i][j] == ' ')
+			while (nums[i][j] == ' ')
 				j++;
-			if (nums[i][j] < '0' || nums[i][j] > '9')
-				ft_error(main, "One argument is not valid");
-			else
+			if (nums[i][j] == '-' || nums[i][j] == '+')
 				j++;
+			if (!nums[i][j] || nums[i][j] < '0' || nums[i][j] > '9')
+				ft_error(main, "Error");
+			while (nums[i][j] >= '0' && nums[i][j] <= '9')
+				j++;
+			if (nums[i][j] && nums[i][j] != ' '){
+				ft_error(main, "Error");
+			}
 		}
 		i++;
 	}
@@ -68,7 +68,7 @@ int	validate_dup(t_main *main, int *nums)
 		while (j < array_size)
 		{
 			if (nums[i] == nums[j])
-				ft_error(main, "There is one number duplicated");
+				ft_error(main, "Error");
 			j++;
 		}
 		i++;
