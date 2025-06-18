@@ -3737,7 +3737,7 @@ elif [ $N -gt 11500 ]; then
 	printf "${RED}[KO][1/5]${DEF_COLOR}";
 fi
 S=$(./push_swap $ARG | ./checker_linux $ARG)
-if [ $S -eq "OK" ]; then
+if [ $S == "OK" ]; then
 	printf "${GREEN} [OK]${DEF_COLOR}\n";
 else
 	printf "${RED} [KO]${DEF_COLOR}\n";

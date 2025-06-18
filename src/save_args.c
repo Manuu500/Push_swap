@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 09:11:55 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 18:37:18 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:29:59 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	parse_char(t_main *main, int ac, char **av)
 	}
 	main->av_array = ft_split(value, ' ');
 	if (!main->av_array)
-		ft_error(main, "Memory allocation error");
+		ft_error(main, "Error");
 	free(value);
 }
 
