@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:26 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 18:59:06 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:19:07 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,18 @@ void	check_num_beyond(t_main *main, long long n)
 	{
 		free_matrix(main->av_array);
 		ft_error(main, "Error");
+	}
+}
+
+void	check_empty_args(t_main *main,char **args)
+{
+	int		i;
+	
+	i = 0;
+	while (args[i])
+	{
+		if (ft_strlen(args[i]) == 0)
+			ft_error(main, "Error");
+		i++;
 	}
 }

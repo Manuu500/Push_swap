@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 19:01:42 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 16:23:21 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:18:39 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,6 @@ void		initial_desp(t_main *main);
 void		final_sort(t_main *main);
 void		free_stack(t_stack **stack);
 void		check_num_beyond(t_main *main, long long n);
+void		check_empty_args(t_main *main,char **args);
 
 #endif

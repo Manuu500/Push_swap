@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 19:11:01 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/18 19:18:56 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_main	main;
-	int		i;
 	
-	i = 0;
 	ft_bzero(&main, sizeof(main));
 	initialize_vars(&main, argv, argc);
-	while (argv[i])
-	{
-		if (ft_strlen(argv[i]) == 0)
-			ft_error(&main, "Error");
-		i++;
-	}
+	check_empty_args(&main, argv);
 	is_valid_number(&main, argv);
 	parse_args(&main, argc, argv);
 	if (check_ordered(&main) != 1)
