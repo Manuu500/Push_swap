@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 18:52:59 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 19:18:56 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/19 12:47:17 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_main	main;
-	
+
 	ft_bzero(&main, sizeof(main));
 	initialize_vars(&main, argv, argc);
 	check_empty_args(&main, argv);
@@ -38,24 +38,3 @@ int	main(int argc, char **argv)
 		free(main.num_array);
 	return (0);
 }
-
-// void	free_stack(t_stack **stack)
-// {
-// 	t_stack	*current;
-// 	t_stack	*next;
-
-//     if (!stack || !(*stack))
-//         return;
-    
-//     current = *stack;
-// 	while (current)
-// 	{
-// 		if (current->next)
-// 			next = current->next;
-// 		if (current)
-// 			free(current);
-// 		if (next)
-// 			current = next;
-// 	}
-// 	*stack = NULL;
-// }

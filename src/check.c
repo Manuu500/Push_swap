@@ -6,7 +6,7 @@
 /*   By: mruiz-ur <mruiz-ur@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 16:11:31 by mruiz-ur          #+#    #+#             */
-/*   Updated: 2025/06/18 18:35:19 by mruiz-ur         ###   ########.fr       */
+/*   Updated: 2025/06/19 12:46:51 by mruiz-ur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	check_num_limit(t_main *main, long long num)
 {
-	if (num > 2147483648 || num < -2147483648){
-		ft_error(main, "Error");	
+	if (num > 2147483648 || num < -2147483648)
+	{
+		ft_error(main, "Error");
 	}
 }
 
@@ -38,7 +39,8 @@ int	is_valid_number(t_main *main, char **nums)
 				ft_error(main, "Error");
 			while (nums[i][j] >= '0' && nums[i][j] <= '9')
 				j++;
-			if (nums[i][j] && nums[i][j] != ' '){
+			if (nums[i][j] && nums[i][j] != ' ')
+			{
 				ft_error(main, "Error");
 			}
 		}
