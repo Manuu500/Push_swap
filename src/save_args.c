@@ -60,8 +60,8 @@ static void	create_list(t_main *main, char **av_array, int *num_array)
 	}
 	main->a = list;
 	main->b = NULL;
-	validate_dup(main, num_array);
 	free_matrix(main->av_array);
+	validate_dup(main, num_array);
 }
 
 void	parse_args(t_main *main, int argc, char **argv)
