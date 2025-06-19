@@ -14,10 +14,8 @@
 
 void	check_num_limit(t_main *main, long long num)
 {
-	if (num > 2147483648 || num < -2147483648)
-	{
+	if (num > 2147483647 || num < -2147483648)
 		ft_error(main, "Error");
-	}
 }
 
 int	is_valid_number(t_main *main, char **nums)
