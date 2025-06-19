@@ -47,7 +47,7 @@ void	free_matrix(char **matrix)
 
 void	check_num_beyond(t_main *main, long long n)
 {
-	if (n > 2147483648 || n < -2147483648)
+	if (n > 2147483647 || n < -2147483648)
 	{
 		free_matrix(main->av_array);
 		ft_error(main, "Error");
